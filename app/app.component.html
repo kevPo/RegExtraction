@@ -1,0 +1,20 @@
+<div class="container">
+    <h1 class="logo">Reg Ex-traction</h1>
+    <div class="child">
+        <input type="text" [ngClass]="foundClass" placeholder="Regular Expression" (keyup)="doIt()" [(ngModel)]="regularExpression">
+    </div>
+    <div class="child">
+        <div class="bottom-panel">
+            <!--<input type="text" [value]="foundResults" style="display:none;">-->
+            <textarea class="code" [(ngModel)]="rawText" (keyup)="contentDoIt()" placeholder="Paste your string here" cols="60" rows="10" ></textarea>
+            <div id="divput" class="code" (keyup)="contentDoIt()" contenteditable="true" >
+                <!--<span style="color: blue">var</span> foo = <span style="color: green">"bar"             </span>;-->
+            </div>
+            <div class="results">
+                <span>{{resultsFound}}</span>
+                <button>copy results</button>
+            </div>
+        </div>
+    </div>
+</div>
+
