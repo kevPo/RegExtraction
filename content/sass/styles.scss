@@ -1,5 +1,7 @@
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
 @import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Raleway');
+@import "jquery.highlight-within-textarea";
+@import "tooltips";
 
 html, body {
   color: #404040;
@@ -15,19 +17,26 @@ h1 {
   width: 100%;
 }
 
-textarea, input {
+input {
   background-color: #F2EFDC;
   color: #404040;
   font-family: 'Raleway', sans-serif;
-  font-size: 1.5em;
+  font-size: 1.2em;
   outline: none;
   overflow: auto;
   padding: .3em;
-  resize: none;
+  border: 5px solid #404040;
+  border-radius: 2px;
+}
+
+input.error {
+  border-color: #A5290D;
 }
 
 textarea {
-  width: 100%;
+  resize: none;
+  outline: none;
+  border-radius: 2px;
 }
 
 .container {
@@ -42,17 +51,9 @@ textarea {
   width: 100%;
 }
 
-.no-matches {
-  background-color: red;
-}
-
-.matches {
-  background-color: lawngreen;
-}
-
 .bottom-panel {
     margin: 0 auto;
-    width: 65%;
+    width: 850px;
 }
 
 .results {
@@ -96,14 +97,13 @@ textarea {
   text-transform: uppercase;
   font-size: 1em;
   text-decoration: none;
-  overflow: hidden;
   outline: none;
   -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
   transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
 }
 
 .results > button:hover {
-      background-color: rgba(3,126,140,1);
+    background-color: rgba(0,165,105,1);
 }
 
 .code {

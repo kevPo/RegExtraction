@@ -1,25 +1,85 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Angular QuickStart</title>
+    <title>Reg Extraction</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="styles.css">
-
-    <!-- Polyfill(s) for older browsers -->
-    <script src="node_modules/core-js/client/shim.min.js"></script>
-
-    <script src="node_modules/zone.js/dist/zone.js"></script>
-    <script src="node_modules/reflect-metadata/Reflect.js"></script>
-    <script src="node_modules/systemjs/dist/system.src.js"></script>
-
-    <script src="systemjs.config.js"></script>
-    <script>
-      System.import('app').catch(function(err){ console.error(err); });
-    </script>
+    <link rel="stylesheet" href="content/styles.css">
+    <script src="https://code.jquery.com/jquery-3.1.1.min.js" integrity="sha256-hVVnYaiADRTO2PzUGmuLJr8BLUSjGIZsDYGmIJLv2b8=" crossorigin="anonymous"></script>
+    <script src="js/jquery.highlight-within-textarea.js"></script>
+    <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
   </head>
 
   <body>
-    <my-app>Loading...</my-app>
+    <div class="container">
+      <h1 class="logo">Reg Ex-traction</h1>
+      <div class="child">
+          <input id="regExInput" type="text" placeholder="Regular Expression">
+      </div>
+      <div class="child">
+        <div class="bottom-panel">
+          <textarea placeholder="Put yer text here"></textarea>
+          <div class="results">
+              <span class="js-results"></span>
+              <button tooltip-content="copied!" data-clipboard-target="mark">copy results</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script>
+      var clipboard = new Clipboard('button', {
+        text: function(trigger) {
+          var matches = document.querySelectorAll('mark');
+          var contentToCopy = "";
+          
+          matches.forEach(function(match) {
+            contentToCopy += match.textContent + ", ";
+          });
+
+          contentToCopy = contentToCopy.substr(0, contentToCopy.length-2); 
+          
+          return contentToCopy;
+        }
+      });
+
+      clipboard.on('success', function(e) {
+        $('button').addClass('tooltip');
+      });
+
+      $('button').on('mouseleave', function (event) {
+        $(event.target).removeClass('tooltip');
+      });
+
+      function onInputRegex(input) {
+        var regExInput = $('#regExInput');
+        
+        if (regExInput.hasClass('error'))
+          regExInput.removeClass('error');
+
+        var regExValue = regExInput.val().trim() || '';
+        var regEx = new RegExp('');
+        var numberOfMatches = 0;
+
+        try {
+          if (regExValue.trim() !== '') {
+            regEx = new RegExp(regExValue, 'g');
+            var regExHits = input.match(regEx);
+            numberOfMatches = regExHits == null ? 0 : regExHits.length;
+          }
+        } catch (e) {
+          regExInput.addClass('error');
+          console.log(e);
+        }
+
+        var resultsFoundLabel = numberOfMatches === 1 ? ' result found' : ' results found';
+        $('.js-results').text(numberOfMatches + resultsFoundLabel);
+
+        return regEx;
+      }
+
+      $('textarea').highlightWithinTextarea(onInputRegex, $('#regExInput'));
+    </script>
+      
   </body>
 </html>
