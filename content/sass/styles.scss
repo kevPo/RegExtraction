@@ -12,7 +12,7 @@ html, body {
 
 h1 {
   font-family: 'Bungee Shade', cursive;
-  font-size: 5em;
+  font-size: 6em;
   text-align: center;
   width: 100%;
 }
@@ -122,4 +122,13 @@ textarea {
 .selected {
   background-color: #024959;
   color: #F2EFDC;
+}
+
+.details {
+  align-self: flex-end;
+  font-family: 'Bungee Shade', cursive;
+  margin: 0 auto;
+  .company {
+    margin-top: 5px;
+  }
 }
