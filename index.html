@@ -9,20 +9,20 @@
     <script src="js/jquery.highlight-within-textarea.js"></script>
     <script src="node_modules/clipboard/dist/clipboard.min.js"></script>
   </head>
-
+  
   <body>
     <div class="container">
-      <h1 class="logo">Reg Ex-traction</h1>
+      <div id="header">
+        <h1>Reg Ex-traction</h1>
+      </div>
       <div class="child">
           <input id="regExInput" type="text" placeholder="Regular Expression">
       </div>
-      <div class="child">
-        <div class="bottom-panel">
-          <textarea placeholder="Place text here"></textarea>
-          <div class="results">
-              <span class="js-results"></span>
-              <button tooltip-content="copied to clipboard!" data-clipboard-target="mark">extract matches</button>
-          </div>
+      <div class="info-container">
+        <textarea placeholder="Place text here"></textarea>
+        <div class="results">
+            <span class="matches-label"></span>
+            <button tooltip-content="copied to clipboard!" data-clipboard-target="mark">extract matches</button>
         </div>
       </div>
       <div class="details">
@@ -59,8 +59,8 @@
       function onInputRegex(input) {
         var regExInput = $('#regExInput');
         
-        if (regExInput.hasClass('error'))
-          regExInput.removeClass('error');
+        if (regExInput.hasClass('is-error'))
+          regExInput.removeClass('is-error');
 
         var regExValue = regExInput.val().trim() || '';
         var regEx = new RegExp('');
@@ -73,12 +73,12 @@
             numberOfMatches = regExHits == null ? 0 : regExHits.length;
           }
         } catch (e) {
-          regExInput.addClass('error');
+          regExInput.addClass('is-error');
           console.log(e);
         }
 
         var resultsFoundLabel = numberOfMatches === 1 ? ' match found' : ' matches found';
-        $('.js-results').text(numberOfMatches + resultsFoundLabel);
+        $('.matches-label').text(numberOfMatches + resultsFoundLabel);
 
         return regEx;
       }

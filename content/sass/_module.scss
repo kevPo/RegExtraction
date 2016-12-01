@@ -1,0 +1,85 @@
+.hwt-container {
+    background-color: #F2EFDC;
+	border-radius: 2px;
+}
+
+.hwt-content {
+    border: 5px solid #404040;
+	border-radius: 2px;
+    font-size: 1.2em;
+    height: 200px;
+    padding: 20px;
+    width: 255px;
+    @media (min-width: 728px) {
+      width: 436.8px;
+    }
+    @media (min-width: 1024px) {
+      width: 614.4px;
+    }
+    @media (min-width: 1440px) {
+      width: 800px;
+    }
+}
+
+.hwt-content mark {
+    background-color: #27F2A8;
+    border-radius: 3px;
+}
+
+.info-container {
+    margin: 0 auto;
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.matches-label {
+    color: #F2EFDC;
+    font-weight: 500;
+    font-size: 1em;
+    padding: 0 6px;
+    text-transform: uppercase;
+}
+
+.details {
+    align-self: flex-end;
+    margin: 0 auto;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.company {
+    font-family: 'Bungee Shade', cursive;
+    margin-top: 5px;
+    text-align: center;
+}
+
+.tooltip {
+    display: inline;
+    position: relative;
+}
+
+.tooltip:hover:after {
+    background: #333;
+    background: rgba(0,0,0,.8);
+    border-radius: 5px;
+    bottom: 38px;
+    color: #fff;
+    content: attr(tooltip-content);
+    font-size: .8em;
+    left: 30%;
+    padding: 0 7px;
+    position: absolute;
+    z-index: 98;
+    height: 33px;
+}
+
+.tooltip:hover:before {
+    border: solid;
+    border-color: #333 transparent;
+    border-width: 6px 6px 0 6px;
+    bottom: 32px;
+    content: "";
+    left: 50%;
+    position: absolute;
+    z-index: 99;
+}

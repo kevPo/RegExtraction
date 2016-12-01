@@ -39,31 +39,9 @@
 }
 
 .hwt-content {
-	border: 5px solid #404040;
-	border-radius: 2px;
 	background: none transparent !important;
 }
 
 .hwt-content mark {
 	color: inherit;
-}
-
-/* background and positioning */
-.hwt-container {
-    background-color: #F2EFDC;
-	border-radius: 2px;
-}
-/* size and formatting */
-.hwt-content {
-    width: 800px;
-    height: 200px;
-    padding: 20px;
-    font-size: 1.2em;
-}
-/* highlights */
-.hwt-content mark {
-    border-radius: 3px;
-}
-.hwt-content mark {
-    background-color: #27F2A8;
 }

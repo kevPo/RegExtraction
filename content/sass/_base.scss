@@ -1,0 +1,84 @@
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade');
+@import url('https://fonts.googleapis.com/css?family=Bungee+Shade|Raleway');
+$backgroundOrange: #F24C27;
+
+html, body {
+  color: #404040;
+  font-size: 100%;
+  background: $backgroundOrange;
+  font-family: 'Raleway', sans-serif;
+}
+
+h1 {
+  font-family: 'Bungee Shade', cursive;
+  font-size: 3em;
+  @media (min-width: 600px) {
+      font-size: 3em;
+  }
+  @media (min-width: 768px) {
+      font-size: 4em;
+  }
+  @media (min-width: 1024px) {
+      font-size: 5em;
+  }
+  @media (min-width: 1280px) {
+      font-size: 6em;
+  }
+  @media (min-width: 1440px) {
+      font-size: 7em;
+  }
+}
+
+input {
+  background-color: #F2EFDC;
+  border: 5px solid #404040;
+  border-radius: 2px;
+  color: #404040;
+  font-family: 'Raleway', sans-serif;
+  font-size: 1.2em;
+  outline: none;
+  overflow: auto;
+  padding: .3em;
+}
+
+textarea {
+  resize: none;
+  outline: none;
+  border-radius: 2px;
+}
+
+button {
+  cursor: pointer;
+  min-height: 36px;
+  min-width: 88px;
+  line-height: 36px;
+  vertical-align: middle;
+  -webkit-box-align: center;
+  -webkit-align-items: center;
+  -ms-grid-row-align: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 3px;
+  box-sizing: border-box;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  border: 0;
+  color: #F2EFDC;
+  padding: 0 6px;
+  background-color: rgba(0,165,105,1);
+  white-space: nowrap;
+  text-transform: uppercase;
+  font-size: 1em;
+  text-decoration: none;
+  outline: none;
+  -webkit-transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+  transition: box-shadow .4s cubic-bezier(.25,.8,.25,1),background-color .4s cubic-bezier(.25,.8,.25,1);
+  &:hover {
+    background-color: rgba(0,165,105,1);
+  }
+  @media (min-width: 1024px) {
+      background-color: transparent;
+  }
+}

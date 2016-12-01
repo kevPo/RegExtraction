@@ -1,0 +1,46 @@
+#header {
+    text-align: center;
+    width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  height: 90vh;
+}
+
+.child {
+  margin-bottom: 2em;
+  text-align: center;
+  width: 100%;
+}
+
+.results {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  .matches-label {
+      display: block;
+      margin: 10px;
+      width: 100%;
+  }
+  button {
+      margin: 0 auto;
+      margin-bottom: 2px;
+  }
+  @media (min-width: 728px) {
+      .matches-label {
+          display: inline-block;
+          margin: 0;
+          width: inherit;
+      }
+      button {
+          margin: 0;
+          margin-left: auto;
+          display: inline-block;
+          position: relative;
+      }
+  }
+}
