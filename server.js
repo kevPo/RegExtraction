@@ -14,5 +14,6 @@ controllers.init(app);
 
 app.use(express.static('public'));
 
-app.listen(8080);
-console.log("App listening on port " + 8080);
+var port = process.env.PORT || 8080;
+app.listen(port);
+console.log("App listening on port " + port);
